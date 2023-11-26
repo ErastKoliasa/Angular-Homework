@@ -22,7 +22,7 @@
     >
     <span class="product-info">
       <span>NAME: {{ product.name }}</span>
-      <span>PRICE: {{product.price}}</span>
+      <span>PRICE: {{product.price | currency}}</span>
       <span *ngFor="let tag of product.tags" class="tag">
         <span> TAG: {{ tag.title }}</span>
         <span class="tagCircle" [style.background-color]="tag.color"></span>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, CurrencyPipe } from '@angular/common';
 import {MatIconModule} from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
@@ -13,7 +13,7 @@ import { ProductsService } from '../../services/product-service/products.service
 @Component({
   selector: 'app-products-list',
   standalone: true,
-  imports: [CommonModule, MatIconModule, MatSelectModule, MatOptionModule],
+  imports: [CommonModule, MatIconModule, MatSelectModule, MatOptionModule, CurrencyPipe],
   templateUrl: './products-list.component.html',
   styleUrl: './products-list.component.css'
 })
