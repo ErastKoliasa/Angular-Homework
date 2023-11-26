@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {MatIconModule} from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,5 +14,13 @@ import { MatOptionModule } from '@angular/material/core';
   styleUrl: './products-list.component.css'
 })
 export class ProductsListComponent {
+  constructor(private router: Router){}
 
+  goToAddNewProduct():void {
+    this.router.navigate(["/addNewProduct"])
+  }
+
+  goToProductDetails(id:string):void {
+    this.router.navigate(['/productDetails', id])
+  }
 }

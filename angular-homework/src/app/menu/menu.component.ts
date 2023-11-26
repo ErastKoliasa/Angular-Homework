@@ -4,6 +4,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
+import { Router, RouterLink,} from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -12,4 +13,14 @@ import { MatMenuModule } from '@angular/material/menu';
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.css'
 })
-export class MenuComponent {}
+export class MenuComponent {
+  constructor(private router: Router){}
+
+  goHome():void {
+    this.router.navigate([""])
+  }
+
+  goTagsManager():void {
+    this.router.navigate(["/tags"])
+  }
+}

@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { ProductsListComponent } from './products/products-list/products-list.component';
-import { ProductDetailsComponent } from './products/product-details/product-details.component';
+import { MenuComponent } from './menu/menu.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, ProductsListComponent, ProductDetailsComponent],
+  imports: [CommonModule, RouterOutlet, MenuComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
