@@ -4,14 +4,14 @@
     <div class="form-field">
         <mat-form-field>
             <mat-label>Title:</mat-label>
-            <input matInput>
+            <input matInput required>
           </mat-form-field>
     </div>
 
     <div class="form-field">
         <mat-form-field floatLabel="always" class="price">
             <mat-label>Price</mat-label>
-            <input matInput type="number"  placeholder="0">
+            <input matInput type="number"  placeholder="0" required>
             <span matTextPrefix>$&nbsp;</span>
           </mat-form-field>
     </div>
@@ -19,14 +19,14 @@
     <div class="form-field">
         <mat-form-field class="description">
             <mat-label>Description: </mat-label>
-            <textarea matInput></textarea>
+            <textarea matInput required></textarea>
           </mat-form-field>
     </div>
 
     <div class="form-field">
       <mat-form-field class="tags">
         <mat-label>Tags: </mat-label>
-        <mat-select multiple>
+        <mat-select multiple required>
           <mat-option>Tag 1 </mat-option>
           <mat-option>Tag 2 </mat-option>
           <mat-option>Tag 3 </mat-option>
