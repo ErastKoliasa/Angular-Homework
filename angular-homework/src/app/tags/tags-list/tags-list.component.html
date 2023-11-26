@@ -1,0 +1,38 @@
+<div class="page">
+  <div class="container">
+    <div class="form-container">
+      <form>
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required/>
+
+        <label for="color">Color:</label>
+        <input type="color" id="color" name="color" value="#000000" required />
+
+        <button mat-button class="create-button">Add Tag</button>
+      </form>
+    </div>
+    <h1>Tags:</h1>
+    <ul class="list-container">
+      <li class="list-item">
+        <span>Title 1</span>
+        <span class="tag-color"></span>
+        <button mat-button class="edit-button">
+          <mat-icon>edit</mat-icon> Edit
+        </button>
+        <button mat-button class="delete-button">
+          <mat-icon>delete</mat-icon> Delete
+        </button>
+      </li>
+      <li class="list-item">
+        <span>Title 2</span>
+        <span class="tag-color"></span>
+        <button mat-button class="edit-button">
+          <mat-icon>edit</mat-icon> Edit
+        </button>
+        <button mat-button class="delete-button">
+          <mat-icon>delete</mat-icon> Delete
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>
