@@ -28,7 +28,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px;
+    padding: 12px 30px;
     background-color: #fff;
     border-bottom: 1px solid #eee;
     cursor: pointer;
@@ -40,11 +40,37 @@
     transform: scale(1.02);
 }
 
-.list-item span {
+.list-item .product-info {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
     font-size: 16px;
     font-weight: 500;
     color: #333;
-}
+  }
+  
+  .product-info span {
+    margin-top: 5px;
+  }
+
+  .tag {
+    display: flex;
+    align-items: center;
+  }
+  
+  .tag-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    width: 120px;
+  }
+  
+  .tagCircle {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    margin-left: 5px;
+  }
 
 .delete-button {
     background-color: #e53935;

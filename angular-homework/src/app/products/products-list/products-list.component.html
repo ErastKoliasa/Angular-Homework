@@ -15,35 +15,21 @@
   </div>
 
   <div class="container__list">
-    <div class="list-item" (click)="goToProductDetails('1')">
-      <span>Product 1</span>
-      <span>Price 1</span>
-      <span>Description 1</span>
-      <span>Tag 1</span>
+    <div
+      class="list-item"
+      *ngFor="let product of products$ | async"
+      (click)="goToProductDetails('1')"
+    >
+    <span class="product-info">
+      <span>NAME: {{ product.name }}</span>
+      <span>PRICE: {{product.price}}</span>
+      <span *ngFor="let tag of product.tags" class="tag">
+        <span> TAG: {{ tag.title }}</span>
+        <span class="tagCircle" [style.background-color]="tag.color"></span>
+      </span>
+    </span>
       <div>
         <button mat-button class="delete-button" (click)="$event.stopPropagation()">
-          <mat-icon>delete</mat-icon> Delete
-        </button>
-      </div>
-    </div>
-    <div class="list-item">
-      <span>Product 2</span>
-      <span>Price 2</span>
-      <span>Description 2</span>
-      <span>Tag 2</span>
-      <div>
-        <button mat-button class="delete-button">
-          <mat-icon>delete</mat-icon> Delete
-        </button>
-      </div>
-    </div>
-    <div class="list-item">
-      <span>Product 3</span>
-      <span>Price 3</span>
-      <span>Description 3</span>
-      <span>Tag 3</span>
-      <div>
-        <button mat-button class="delete-button">
           <mat-icon>delete</mat-icon> Delete
         </button>
       </div>
