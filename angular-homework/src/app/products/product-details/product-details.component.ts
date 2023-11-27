@@ -31,8 +31,9 @@ export class ProductDetailsComponent implements OnInit {
     }
   }
 
-
-  goToEditForm(id: string): void {
-    this.router.navigate(["/addNewProduct", id])
+  goToEditForm(id: string | undefined): void {
+    if (id !== undefined) {
+      this.router.navigate(["/editForm", id])
+    }
   }
 }

@@ -50,4 +50,10 @@ export class ProductsService {
   public addProduct(newProduct:IProducts): void{
     this.products = [...this.products, newProduct]
   }
+
+  public editProduct(updatedProduct: IProducts): void {
+    this.products = this.products.map(product =>
+      product.id === updatedProduct.id ? updatedProduct : product
+    );
+  }
 }
