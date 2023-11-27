@@ -46,4 +46,8 @@ export class ProductsService {
   public getProductById(id:string): IProducts | undefined {
     return this.products.find(product => product.id === id);
   }
+
+  public addProduct(newProduct:IProducts): void{
+    this.products = [...this.products, newProduct]
+  }
 }

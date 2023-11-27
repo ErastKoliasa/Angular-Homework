@@ -1,38 +1,56 @@
 <div class="form-container">
   <h1>ADD A PRODUCT</h1>
-  <form>
+  <form #productForm="ngForm" (submit)="addProduct()">
     <div class="form-field">
         <mat-form-field>
             <mat-label>Title:</mat-label>
-            <input matInput required>
+            <input [(ngModel)]='newProduct.name' name="name" matInput required id="name">
+            <mat-error *ngIf="productForm.controls['name'].invalid && (productForm.controls['name'].dirty || productForm.controls['name'].touched)">
+              Name is required.
+          </mat-error>
           </mat-form-field>
     </div>
 
     <div class="form-field">
         <mat-form-field floatLabel="always" class="price">
             <mat-label>Price</mat-label>
-            <input matInput type="number"  placeholder="0" required>
+            <input [(ngModel)]="newProduct.price" name="price" matInput type="number"  placeholder="0" required id="price">
             <span matTextPrefix>$&nbsp;</span>
+            <mat-error *ngIf="productForm.controls['price'].invalid && (productForm.controls['price'].dirty || productForm.controls['price'].touched)">
+              Price is required.
+          </mat-error>
           </mat-form-field>
     </div>
 
     <div class="form-field">
         <mat-form-field class="description">
             <mat-label>Description: </mat-label>
-            <textarea matInput required></textarea>
+            <textarea [(ngModel)]="newProduct.description" name="description" matInput required id="description"></textarea>
+            <mat-error *ngIf="productForm.controls['description'].invalid && (productForm.controls['description'].dirty || productForm.controls['description'].touched)">
+              Description is required.
+          </mat-error>
           </mat-form-field>
     </div>
 
     <div class="form-field">
       <mat-form-field class="tags">
         <mat-label>Tags: </mat-label>
-        <mat-select multiple required>
-          <mat-option>Tag 1 </mat-option>
-          <mat-option>Tag 2 </mat-option>
-          <mat-option>Tag 3 </mat-option>
+        <mat-select multiple [(ngModel)]="newProduct.tags" name="tags" required>
+          <mat-option *ngFor="let tag of tags$ | async" [value]="tag">
+            <span class="tag-option">
+              <span>{{tag.title}}</span>
+              <span class="tagCircle" [style.background-color]="tag.color"></span>
+            </span>
+          </mat-option>
         </mat-select>
+        <mat-error *ngIf="productForm.controls['tags'].invalid && (productForm.controls['tags'].dirty || productForm.controls['tags'].touched)">
+          Tag is required.
+      </mat-error>
       </mat-form-field>
     </div>
-    <button class="create-button">Add Product</button>
+    <button type="submit" class="create-button" *ngIf="!productForm.invalid; else disabled" [disabled]="productForm.invalid">Add Product</button>
+    <ng-template #disabled>  
+      <button type="submit" class="create-button disabled" [disabled]="productForm.invalid">Add Product</button>  
+    </ng-template> 
   </form>
 </div>

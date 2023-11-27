@@ -4,7 +4,7 @@ import { Tags } from "../tags/tags";
 export interface IProducts {
     id:string,
     name: string,
-    price: number,
+    price: number | null,
     description: string,
     tags: Tags[],
 }
@@ -12,11 +12,11 @@ export interface IProducts {
 export class Products implements IProducts {
     id:string;
     name: string;
-    price: number;
+    price: number | null;
     description: string;
     tags: Tags[];
 
-    constructor( name: string, price: number, description: string, tags: Tags[]){
+    constructor( name: string, price: number|null, description: string, tags: Tags[]){
         this.id = UUID.UUID();
         this.name = name;
         this.price = price;
