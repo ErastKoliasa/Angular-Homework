@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule, CurrencyPipe } from '@angular/common';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import { Router } from '@angular/router';
@@ -21,31 +21,37 @@ import { TagsApiService } from '../../services/tag-service/tags-api.service';
   templateUrl: './products-list.component.html',
   styleUrl: './products-list.component.css'
 })
-export class ProductsListComponent implements OnInit{
+export class ProductsListComponent implements OnInit {
   public products$: Observable<IProducts[]> = this.productsService.products$;
   public tags$: Observable<ITags[]> = this.tagsService.tags$;
-  public selectedTags:string[] = [];
+  public selectedTags: string[] = [];
 
-  constructor(private router: Router, 
-    private productsService: ProductsService, 
+  constructor(private router: Router,
+    private productsService: ProductsService,
     private productsApiService: ProductsApiService,
     private tagsApiService: TagsApiService,
-    private tagsService: TagService){}
+    private tagsService: TagService) { }
 
   ngOnInit(): void {
+    if(!this.productsService.products$.getValue().length){
     this.productsApiService.getProducts().subscribe(products => {
-      this.productsService.setPosts(products);
+      this.productsService.setProducts(products);
     })
+    }
     this.tagsApiService.getTags().subscribe(tags => {
       this.tagsService.setTags(tags)
-  })
-}
+    })
+  }
 
-  goToAddNewProduct():void {
+  deleteProduct(id: string) {
+    this.productsService.deleteProductById(id)
+  }
+
+  goToAddNewProduct(): void {
     this.router.navigate(["/addNewProduct"])
   }
 
-  goToProductDetails(id:string):void {
+  goToProductDetails(id: string): void {
     this.router.navigate(['/productDetails', id])
   }
 }
