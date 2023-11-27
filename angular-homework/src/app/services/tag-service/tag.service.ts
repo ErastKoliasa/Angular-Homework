@@ -11,20 +11,20 @@ export class TagService {
   private readonly _tags$: BehaviorSubject<ITags[]> = new BehaviorSubject<ITags[]>([]);
   public readonly tags$ = this._tags$;
 
-  constructor(private productsService: ProductsService){
+  constructor(private productsService: ProductsService) {
     this.loadTagsFromLocalStorage();
   }
 
-  private get tags():ITags[] {
+  private get tags(): ITags[] {
     return this._tags$.getValue();
   }
 
-  private set tags(tags:ITags[]){
+  private set tags(tags: ITags[]) {
     this._tags$.next(tags);
     this.saveTagsToLocalStorage(tags)
   }
 
-  public setTags(tags: ITags[]): void{
+  public setTags(tags: ITags[]): void {
     this.tags = tags;
   }
 
@@ -49,5 +49,9 @@ export class TagService {
       });
       this.productsService.setProducts(updatedProducts);
     });
-}
+  }
+
+  public addTag(newTag: ITags): void {
+    this.tags = [...this.tags, newTag]
+  }
 }

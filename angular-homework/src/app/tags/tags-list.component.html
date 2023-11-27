@@ -1,22 +1,25 @@
 <div class="page">
   <div class="container">
     <div class="form-container">
-      <form>
+      <form (submit)="addTag()" #TagForm="ngForm">
         <div class="form-field">
           <mat-form-field>
             <mat-label>Title:</mat-label>
-            <input matInput required />
+            <input matInput required [(ngModel)]="newTag.title" name="title"/>
           </mat-form-field>
         </div>
 
         <div class="form-field">
           <mat-form-field>
             <mat-label>Color:</mat-label>
-            <input matInput type="color" required />
+            <input matInput type="color" [(ngModel)]="newTag.color" required name="color"/>
           </mat-form-field>
         </div>
 
-        <button mat-button class="create-button">Add Tag</button>
+        <button mat-button class="create-button" type="submit" *ngIf="!TagForm.invalid; else disabled" [disabled]="TagForm.invalid">Add Tag</button>
+        <ng-template #disabled>  
+          <button type="submit" class="create-button disabled" [disabled]="TagForm.invalid">Add Product</button>  
+        </ng-template> 
       </form>
     </div>
     <h1>Tags:</h1>
