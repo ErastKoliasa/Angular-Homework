@@ -18,4 +18,8 @@ export class TagsListComponent {
   public tags$: Observable<ITags[]> = this.tagsService.tags$;
 
   constructor(private tagsService: TagService){}
+
+  deleteProduct(id: string) {
+    this.tagsService.deleteTagById(id);
+  }
 }

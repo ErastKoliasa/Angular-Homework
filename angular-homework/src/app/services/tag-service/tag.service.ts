@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, take } from 'rxjs';
 import { ITags } from '../../tags/tags';
+import { ProductsService } from '../product-service/products.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class TagService {
   private readonly _tags$: BehaviorSubject<ITags[]> = new BehaviorSubject<ITags[]>([]);
   public readonly tags$ = this._tags$;
 
-  constructor(){
+  constructor(private productsService: ProductsService){
     this.loadTagsFromLocalStorage();
   }
 
@@ -37,4 +38,16 @@ export class TagService {
       this._tags$.next(JSON.parse(savedTags));
     }
   }
+
+  public deleteTagById(id: string): void {
+    const updatedTags = this.tags.filter(tag => tag.id !== id);
+    this.tags = updatedTags;
+    this.productsService.products$.pipe(take(1)).subscribe(products => {
+      const updatedProducts = products.map(product => {
+        const updatedProductTags = product.tags.filter(tag => tag.id !== id);
+        return { ...product, tags: updatedProductTags };
+      });
+      this.productsService.setProducts(updatedProducts);
+    });
+}
 }
