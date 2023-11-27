@@ -1,15 +1,24 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, catchError } from 'rxjs';
 import { ITags } from '../../tags/tags';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TagsApiService {
+  private productsUrl: string = '../../../assets/tags.json';
   constructor(private http: HttpClient) { }
 
   public getTags():Observable<ITags[]>{
-    return this.http.get<ITags[]>('../../../assets/tags.json');
+    return this.http.get<ITags[]>(this.productsUrl)
+    .pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  private handleError(error: HttpErrorResponse): Observable<any> {
+    console.error(error.status, error.message)
+    throw ('Something bad happened; please try again later.');
   }
 }
