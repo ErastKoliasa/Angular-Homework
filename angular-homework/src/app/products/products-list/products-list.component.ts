@@ -39,19 +39,20 @@ export class ProductsListComponent implements OnInit {
     })
     }
     this.tagsApiService.getTags().subscribe(tags => {
-      this.tagsService.setTags(tags)
+      this.tagsService.setTags(tags);
     })
   }
 
   deleteProduct(id: string) {
-    this.productsService.deleteProductById(id)
+    this.productsService.deleteProductById(id);
   }
 
   goToAddNewProduct(): void {
-    this.router.navigate(["/addNewProduct"])
+    this.router.navigate(["/addNewProduct"]);
   }
 
   goToProductDetails(id: string): void {
-    this.router.navigate(['/productDetails', id])
+    this.productsService.getProductById(id);
+    this.router.navigate(['/productDetails', id]);
   }
 }

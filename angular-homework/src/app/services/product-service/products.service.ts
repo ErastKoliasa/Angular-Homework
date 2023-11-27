@@ -42,4 +42,8 @@ export class ProductsService {
     const updatedProducts = this.products.filter(product => product.id !== id);
     this.products = updatedProducts;
   }
+
+  public getProductById(id:string): IProducts | undefined {
+    return this.products.find(product => product.id === id);
+  }
 }

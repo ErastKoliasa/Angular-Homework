@@ -21,7 +21,7 @@
     <div
       class="list-item"
       *ngFor="let product of products$ | async"
-      (click)="goToProductDetails('1')"
+      (click)="goToProductDetails(product.id)"
     >
     <span class="product-info">
       <span>NAME: {{ product.name }}</span>
