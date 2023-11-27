@@ -4,13 +4,13 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import { IProducts, Products } from '../products';
-import { ProductsService } from '../../services/product-service/products.service';
+import { IProducts, Products } from '../../products';
+import { ProductsService } from '../../../services/product-service/products.service';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { TagService } from '../../services/tag-service/tag.service';
+import { TagService } from '../../../services/tag-service/tag.service';
 import { Observable } from 'rxjs';
-import { ITags } from '../../tags/tags';
+import { ITags } from '../../../tags/tags';
 
 @Component({
   selector: 'app-product-form',
