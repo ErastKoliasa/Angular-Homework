@@ -25,6 +25,18 @@
 .form-container input[type="color"] {
     cursor: pointer;
 }
+
+.tag-option {
+    display: flex;
+    align-items: center;
+  }
+
+.tagCircle {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    margin-left: 5px;
+  }
 /* 
 .form-container input:invalid {
     border: 1px solid #ff0000;
@@ -65,6 +77,11 @@
     border: 1px solid #ddd;
     margin-bottom: 10px;
     border-radius: 4px;
+}
+
+.list-item > * {
+    flex: 1; 
+    margin-right: 10px; 
 }
 
 .tag-color {

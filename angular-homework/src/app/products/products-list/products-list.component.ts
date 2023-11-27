@@ -33,14 +33,16 @@ export class ProductsListComponent implements OnInit {
     private tagsService: TagService) { }
 
   ngOnInit(): void {
-    if(!this.productsService.products$.getValue().length){
-    this.productsApiService.getProducts().subscribe(products => {
-      this.productsService.setProducts(products);
-    })
+    if (!this.productsService.products$.getValue().length) {
+      this.productsApiService.getProducts().subscribe(products => {
+        this.productsService.setProducts(products);
+      })
     }
-    this.tagsApiService.getTags().subscribe(tags => {
-      this.tagsService.setTags(tags);
-    })
+    if (!this.tagsService.tags$.getValue().length) {
+      this.tagsApiService.getTags().subscribe(tags => {
+        this.tagsService.setTags(tags);
+      })
+    }
   }
 
   deleteProduct(id: string) {

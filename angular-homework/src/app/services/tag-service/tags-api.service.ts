@@ -7,11 +7,12 @@ import { ITags } from '../../tags/tags';
   providedIn: 'root'
 })
 export class TagsApiService {
-  private productsUrl: string = '../../../assets/tags.json';
+  private tagsUrl: string = '../../../assets/tags.json';
+  
   constructor(private http: HttpClient) { }
 
   public getTags():Observable<ITags[]>{
-    return this.http.get<ITags[]>(this.productsUrl)
+    return this.http.get<ITags[]>(this.tagsUrl)
     .pipe(
       catchError(this.handleError)
     );
