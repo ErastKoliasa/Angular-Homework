@@ -7,6 +7,7 @@ import { TagService } from '../services/tag-service/tag.service';
 import { Observable } from 'rxjs';
 import { ITags, Tags } from './tags';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tags-list',
@@ -19,7 +20,7 @@ export class TagsListComponent {
   public tags$: Observable<ITags[]> = this.tagsService.tags$;
   public newTag: ITags = new Tags("", "");
 
-  constructor(private tagsService: TagService){}
+  constructor(private tagsService: TagService, private router: Router){}
 
   public addTag(): void {
     this.tagsService.addTag(this.newTag);
@@ -29,5 +30,11 @@ export class TagsListComponent {
 
   deleteProduct(id: string) {
     this.tagsService.deleteTagById(id);
+  }
+
+  goToEditForm(id: string | undefined): void {
+    if (id !== undefined) {
+      this.router.navigate(["/editTagForm", id])
+    }
   }
 }

@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="form-container">
+      <form *ngIf="selectedTag" (submit)="editTag()" #TagForm="ngForm">
+        <div class="form-field">
+          <mat-form-field>
+            <mat-label>Title:</mat-label>
+            <input matInput required [(ngModel)]="selectedTag.title" name="title"/>
+            <mat-error *ngIf="TagForm.controls['title']?.invalid && (TagForm.controls['title']?.dirty || TagForm.controls['title']?.touched)">
+                Title is required.
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-field">
+          <mat-form-field>
+            <mat-label>Color:</mat-label>
+            <input matInput type="color" [(ngModel)]="selectedTag.color" required name="color"/>
+            <mat-error *ngIf="TagForm.controls['color']?.invalid && (TagForm.controls['color']?.dirty || TagForm.controls['color']?.touched)">
+                Color is required.
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <button mat-button class="create-button" type="submit" *ngIf="!TagForm.invalid; else disabled" [disabled]="TagForm.invalid">Save</button>
+        <ng-template #disabled>  
+          <button type="submit" class="create-button disabled" [disabled]="TagForm.invalid">Save</button>  
+        </ng-template> 
+      </form>
+    </div>
+</div>

@@ -54,4 +54,23 @@ export class TagService {
   public addTag(newTag: ITags): void {
     this.tags = [...this.tags, newTag]
   }
+
+  public getTagById(id:string): ITags | undefined {
+    return this.tags.find(tag => tag.id === id);
+  }
+
+  public editTag(updatedTag: ITags): void {
+    const updatedTags = this.tags.map(tag =>
+      tag.id === updatedTag.id ? updatedTag : tag
+    );
+    this.tags = updatedTags;
+
+    this.productsService.products$.pipe(take(1)).subscribe(products => {
+      const updatedProducts = products.map(product => {
+        const updatedProductTags = product.tags.map(tag => (tag.id === updatedTag.id ? updatedTag : tag));
+        return { ...product, tags: updatedProductTags };
+      });
+      this.productsService.setProducts(updatedProducts);
+    });
+  }
 }

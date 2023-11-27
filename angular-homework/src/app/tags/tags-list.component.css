@@ -26,16 +26,6 @@
     cursor: pointer;
 }
 
-
-.disabled {
-    background-color: #808080;
-}
-
-
-.disabled:hover {
-    background-color: #808080;
-}
-
 .tag-option {
     display: flex;
     align-items: center;
