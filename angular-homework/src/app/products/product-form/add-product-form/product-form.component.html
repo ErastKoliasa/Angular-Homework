@@ -14,7 +14,7 @@
     <div class="form-field">
         <mat-form-field floatLabel="always" class="price">
             <mat-label>Price</mat-label>
-            <input [(ngModel)]="newProduct.price" name="price" matInput type="number"  placeholder="0" required id="price">
+            <input [(ngModel)]="newProduct.price" name="price" matInput type="number"  placeholder="0" required id="price" pattern="[0-9]+">
             <span matTextPrefix>$&nbsp;</span>
             <mat-error *ngIf="productForm.controls['price']?.invalid && (productForm.controls['price']?.dirty || productForm.controls['price']?.touched)">
               Price is required.
