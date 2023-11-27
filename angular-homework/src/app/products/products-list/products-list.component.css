@@ -5,6 +5,11 @@
     align-items: center;
 }
 
+.tag-option {
+    display: flex;
+    align-items: center;
+  }
+
 .container__list,
 .container__feature {
     width: 100%;

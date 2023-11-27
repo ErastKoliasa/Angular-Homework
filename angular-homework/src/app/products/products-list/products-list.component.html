@@ -2,10 +2,13 @@
   <div class="container__feature">
     <mat-form-field class="filter-select">
       <mat-label>Filter by:</mat-label>
-      <mat-select multiple>
-        <mat-option>Tag 1 </mat-option>
-        <mat-option>Tag 2 </mat-option>
-        <mat-option>Tag 3 </mat-option>
+      <mat-select multiple [(ngModel)]="selectedTags">
+        <mat-option *ngFor="let tag of tags$ | async" [value]="tag.id">
+          <span class="tag-option">
+            <span>{{tag.title}}</span>
+            <span class="tagCircle" [style.background-color]="tag.color"></span>
+          </span>
+        </mat-option>
       </mat-select>
     </mat-form-field>
 
