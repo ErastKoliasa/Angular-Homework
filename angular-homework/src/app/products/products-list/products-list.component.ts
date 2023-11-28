@@ -48,6 +48,7 @@ export class ProductsListComponent implements OnInit {
 
   public deleteProduct(id: string) {
     this.productsService.deleteProductById(id);
+    alert("The product has been removed")
     this.clearSelectedTags();
   }
 

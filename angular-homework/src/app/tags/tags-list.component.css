@@ -125,4 +125,13 @@
     .container {
         width: 100%;
     }
+
+    .list-item {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .list-item span, .edit-button {
+        margin-bottom: 5px;
+    }
 }

@@ -115,6 +115,16 @@
         max-width: none;
     }
 
+    .list-item {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .product-info, span {
+        align-items: center;
+        margin-bottom: 5px;
+    }
+
     .container__feature{
         flex-direction: column;
     }
