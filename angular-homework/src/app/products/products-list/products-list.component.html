@@ -2,7 +2,7 @@
   <div class="container__feature">
     <mat-form-field class="filter-select">
       <mat-label>Filter by:</mat-label>
-      <mat-select multiple [(ngModel)]="selectedTags">
+      <mat-select multiple [(ngModel)]="selectedTags" (ngModelChange)="filterProducts()" value="selectedTags">
         <mat-option *ngFor="let tag of tags$ | async" [value]="tag.id">
           <span class="tag-option">
             <span>{{tag.title}}</span>

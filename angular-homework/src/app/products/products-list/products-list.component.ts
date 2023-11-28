@@ -22,7 +22,7 @@ import { TagsApiService } from '../../services/tag-service/tags-api.service';
   styleUrl: './products-list.component.css'
 })
 export class ProductsListComponent implements OnInit {
-  public products$: Observable<IProducts[]> = this.productsService.products$;
+  public products$: Observable<IProducts[]> = this.productsService.filteredProducts$;
   public tags$: Observable<ITags[]> = this.tagsService.tags$;
   public selectedTags: string[] = [];
 
@@ -30,7 +30,7 @@ export class ProductsListComponent implements OnInit {
     private productsService: ProductsService,
     private productsApiService: ProductsApiService,
     private tagsApiService: TagsApiService,
-    private tagsService: TagService) { }
+    private tagsService: TagService) {}
 
   ngOnInit(): void {
     if (!this.productsService.products$.getValue().length) {
@@ -43,18 +43,31 @@ export class ProductsListComponent implements OnInit {
         this.tagsService.setTags(tags);
       })
     }
+    this.clearSelectedTags();
   }
 
-  deleteProduct(id: string) {
+  public deleteProduct(id: string) {
     this.productsService.deleteProductById(id);
+    this.clearSelectedTags();
   }
 
-  goToAddNewProduct(): void {
+  public goToAddNewProduct(): void {
+    this.clearSelectedTags();
     this.router.navigate(["/addNewProduct"]);
   }
 
-  goToProductDetails(id: string): void {
+  public goToProductDetails(id: string): void {
     this.productsService.getProductById(id);
+    this.clearSelectedTags();
     this.router.navigate(['/productDetails', id]);
+  }
+
+  public filterProducts(){
+    this.productsService.filterProduct(this.selectedTags)
+  }
+
+  public clearSelectedTags(): void {
+    this.selectedTags = [];
+    this.filterProducts();
   }
 }
