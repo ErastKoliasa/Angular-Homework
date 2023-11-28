@@ -1,0 +1,13 @@
+<mat-toolbar color="primary">
+  <div class="menu-desktop">
+    <button mat-button (click)="goHome()">Home</button>
+    <button mat-button (click)="goTagsManager()">Tags Management</button>
+  </div>
+  <button mat-icon-button class="burger" [matMenuTriggerFor]="menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="goHome()">Home</button>
+    <button mat-menu-item (click)="goTagsManager()">Tags Management</button>
+  </mat-menu>
+</mat-toolbar>

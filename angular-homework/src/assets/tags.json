@@ -1,0 +1,47 @@
+[
+  {
+    "id": "T001",
+    "title": "High-End",
+    "color": "#ff0000"
+  },
+  {
+    "id": "T002",
+    "title": "Tech",
+    "color": "#00ff00"
+  },
+  {
+    "id": "T003",
+    "title": "Professional",
+    "color": "#0000ff"
+  },
+  {
+    "id": "T004",
+    "title": "Entertainment",
+    "color": "#ff8000"
+  },
+  {
+    "id": "T005",
+    "title": "Photography",
+    "color": "#8000ff"
+  },
+  {
+    "id": "T006",
+    "title": "Health",
+    "color": "#0080ff"
+  },
+  {
+    "id": "T007",
+    "title": "Gaming",
+    "color": "#ff0080"
+  },
+  {
+    "id": "T008",
+    "title": "Home",
+    "color": "#804000"
+  },
+  {
+    "id": "T009",
+    "title": "Smart Home",
+    "color": "#fef72f"
+  }
+]

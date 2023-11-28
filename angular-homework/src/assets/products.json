@@ -1,0 +1,142 @@
+[
+    {
+        "id": "P001",
+        "name": "Smartphone X",
+        "price": 799,
+        "description": "The latest flagship smartphone with advanced features and cutting-edge technology.",
+        "tags": [
+            {
+                "id": "T001",
+                "title": "High-End",
+                "color": "#ff0000"
+            },
+            {
+                "id": "T002",
+                "title": "Tech",
+                "color": "#00ff00"
+            }
+        ]
+    },
+    {
+        "id": "P002",
+        "name": "Laptop Pro",
+        "price": 1299,
+        "description": "Powerful laptop for professionals, designed for high performance and productivity.",
+        "tags": [
+            {
+                "id": "T003",
+                "title": "Professional",
+                "color": "#0000ff"
+            }
+        ]
+    },
+    {
+        "id": "P003",
+        "name": "Wireless Headphones",
+        "price": 149,
+        "description": "Premium wireless headphones with noise-cancellation and crystal-clear sound quality.",
+        "tags": [
+            {
+                "id": "T002",
+                "title": "Tech",
+                "color": "#00ff00"
+            }
+        ]
+    },
+    {
+        "id": "P004",
+        "name": "4K Smart TV",
+        "price": 899,
+        "description": "Immerse yourself in stunning visuals with this 4K smart TV, featuring a sleek design and smart functionality.",
+        "tags": [
+            {
+                "id": "T004",
+                "title": "Entertainment",
+                "color": "#ff8000"
+            }
+        ]
+    },
+    {
+        "id": "P005",
+        "name": "Digital Camera",
+        "price": 499,
+        "description": "Capture every moment in high resolution with this advanced digital camera, perfect for photography enthusiasts.",
+        "tags": [
+            {
+                "id": "T002",
+                "title": "Tech",
+                "color": "#00ff00"
+            },
+            {
+                "id": "T005",
+                "title": "Photography",
+                "color": "#8000ff"
+            }
+        ]
+    },
+    {
+        "id": "P006",
+        "name": "Fitness Tracker",
+        "price": 79,
+        "description": "Stay active and monitor your fitness goals with this sleek and feature-rich fitness tracker.",
+        "tags": [
+            {
+                "id": "T006",
+                "title": "Health",
+                "color": "#0080ff"
+            }
+        ]
+    },
+    {
+        "id": "P007",
+        "name": "Gaming Console",
+        "price": 299,
+        "description": "Experience the latest gaming technology with this powerful gaming console, perfect for gamers of all levels.",
+        "tags": [
+            {
+                "id": "T007",
+                "title": "Gaming",
+                "color": "#ff0080"
+            }
+        ]
+    },
+    {
+        "id": "P008",
+        "name": "Coffee Maker",
+        "price": 59,
+        "description": "Start your day right with this convenient and efficient coffee maker, brewing your favorite coffee in minutes.",
+        "tags": [
+            {
+                "id": "T008",
+                "title": "Home",
+                "color": "#804000"
+            }
+        ]
+    },
+    {
+        "id": "P009",
+        "name": "Wireless Earbuds",
+        "price": 129,
+        "description": "Enjoy wireless freedom and superior sound quality with these stylish and comfortable wireless earbuds.",
+        "tags": [
+            {
+                "id": "T002",
+                "title": "Tech",
+                "color": "#00ff00"
+            }
+        ]
+    },
+    {
+        "id": "P010",
+        "name": "Smart Home Hub",
+        "price": 199,
+        "description": "Control your smart home devices with ease using this smart home hub, compatible with various smart home ecosystems.",
+        "tags": [
+            {
+                "id": "T009",
+                "title": "Smart Home",
+                "color": "#fef72f"
+            }
+        ]
+    }
+]

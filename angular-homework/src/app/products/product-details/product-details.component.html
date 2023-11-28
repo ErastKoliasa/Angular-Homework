@@ -1,0 +1,21 @@
+<div class="container" >
+    <div class="product-details">
+        <h1><span class="title"></span> {{selectedProduct?.name}}</h1>
+        <p> <span class="title">DESCRIPTION:</span> {{selectedProduct?.description}}</p>
+        <p><span class="title">PRICE:</span> {{selectedProduct?.price | currency}}</p>
+        <span class="title">TAGS:</span>
+        <div class="tag" *ngFor="let tag of selectedProduct?.tags" class="tag">
+            <span class="tagTitle">{{tag.title}}</span>
+            <span class="tagCircle" [style.background-color]="tag.color"></span>
+        </div>
+    </div>
+
+    <div class="actions">
+        <button mat-button class="edit-button" (click)="goToEditForm(selectedProduct?.id)">
+            <mat-icon>edit</mat-icon> Edit
+          </button>
+        <button mat-button class="delete-button" (click)="deleteProduct(selectedProduct?.id)">
+            <mat-icon>delete</mat-icon> Delete
+        </button>
+    </div>
+</div>
